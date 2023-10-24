@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap');
+/* font-family: 'Roboto Mono', monospace; */
+
+
+:root {
+    --bg: rgb(15, 15, 30);
+    --text: rgb(220, 220, 220);
+    --acc: rgb(79, 205, 185);
+    --font: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: var(--font);
+}
+
+header {
+    color: var(--acc);
+    text-align: center;
+}
+
+
+.difficulty-selection {
+    color: var(--text);
+    text-align: center;
+    padding-top: 20vh;
+}
+
+.difficulty-cards {
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.difficulty-cards div {
+    width: 12vw;
+    min-width: 180px;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    border: 2px solid var(--acc);
+    border-radius: 9px;
+    margin: 15px;
+}
