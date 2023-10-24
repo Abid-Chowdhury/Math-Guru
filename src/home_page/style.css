@@ -23,21 +23,32 @@ header {
 .difficulty-selection {
     color: var(--text);
     text-align: center;
-    padding-top: 20vh;
+    margin-top: 10%;
+
+    .title {
+        margin-bottom: 5%;
+    }
 }
 
 .difficulty-cards {
     display: flex;
-    width: 50%;
+    width: 55%;
     margin: 0 auto;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    gap: 1em;
 }
 
-.difficulty-cards div {
+.difficulty-cards button {
+    cursor: pointer;
+    background-color: transparent;
+    font-family: var(--font);
+    color: var(--text);
     width: 12vw;
     min-width: 180px;
     padding-top: 2vh;
     padding-bottom: 2vh;
     border: 2px solid var(--acc);
     border-radius: 9px;
-    margin: 15px;
 }
