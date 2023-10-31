@@ -32,12 +32,12 @@ header {
 
 .difficulty-cards {
     display: flex;
-    width: 55%;
+    width: 50%;
     margin: 0 auto;
     justify-content: space-between;
     flex-wrap: wrap;
     margin-top: 15px;
-    gap: 1em;
+    gap: 10px;
 }
 
 .difficulty-cards button {
