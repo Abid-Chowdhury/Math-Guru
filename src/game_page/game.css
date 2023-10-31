@@ -42,4 +42,31 @@ header {
             margin-right: auto;
         }
     }
+
+    .answer-container {
+        margin: auto;
+        width: 16vw;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        text-align: center;
+        border-radius: 12px;
+        border: 1px solid rgb(101, 246, 223);
+        color: var(--acc);
+        .answer-field {
+            color: var(--acc);
+            font-size: 84px;
+            background: transparent;
+            border: 0;
+            text-align: center;
+            width: 16vw;
+            outline: none;
+        }
+
+        .answer-field::-webkit-inner-spin-button,
+        .answer-field::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+    }
 }
