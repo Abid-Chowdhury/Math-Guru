@@ -46,9 +46,18 @@ function getValue() {
         return answer
     }
    
+    function correct_Guess() {
+        var green = "rgb(82, 205, 79)"
+        var red = "rgb(205, 79, 79)"
+        var answer_Container = document.getElementById('answer-container')
+        var answer_Field = document.getElementById('answer-field')
+        answer_Container.style.borderColor = green
+        answer_Field.style.color = green
+    }
+
     // check if input matches correct answer
     let value = document.getElementById('answer-field').value
     if (value == answer(random_Numbers, random_Operation)) {
-        console.log(value)
+        correct_Guess()
     }
 }
