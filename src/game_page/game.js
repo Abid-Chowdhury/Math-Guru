@@ -55,9 +55,35 @@ function getValue() {
         answer_Field.style.color = green
     }
 
+    function wrong_Guess() {
+        var green = "rgb(82, 205, 79)"
+        var red = "rgb(205, 79, 79)"
+        var answer_Container = document.getElementById('answer-container')
+        var answer_Field = document.getElementById('answer-field')
+        answer_Container.style.borderColor = red
+        answer_Field.style.color = red
+    }
+
     // check if input matches correct answer
     let value = document.getElementById('answer-field').value
     if (value == answer(random_Numbers, random_Operation)) {
         correct_Guess()
     }
+
+    // check if enter key pressed
+    const input = document.querySelector("input");
+    input.addEventListener("keyup", (event) => {
+        if (event.key === "Enter") {
+            // correct answer to question
+            function answer(random_Numbers, random_Operation) {
+                answer = eval(random_Numbers[0] + random_Operation + random_Numbers[1])
+                return answer
+            }
+            if (value == answer(random_Numbers, random_Operation)) {
+                correct_Guess()
+            } else {
+                wrong_Guess()
+        }
+      }
+    });
 }
