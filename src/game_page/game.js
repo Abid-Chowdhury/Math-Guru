@@ -22,9 +22,9 @@ function update_Numbers(random_Numbers) {
 }
 
 function answer(random_Numbers) {
-    return eval(random_Numbers[0] + random_Numbers[2] + random_Numbers[1])
+    answer = eval(random_Numbers[0] + random_Numbers[2] + random_Numbers[1])
+    return answer
 }
 
-console.log(random_Numbers)
 update_Numbers(random_Numbers)
 answer(random_Numbers)
