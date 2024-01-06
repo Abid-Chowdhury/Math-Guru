@@ -13,7 +13,6 @@ var operation = document.getElementById('operation')
 
 // generates random numbers based on difficulty
 function generate_Random_Nums(difficulty) {
-    console.log(difficulty)
     first_Num = Math.floor(Math.random() * 10)
     second_Num = Math.floor(Math.random() * 10)
     return [first_Num, second_Num]
@@ -35,9 +34,33 @@ function update_Numbers(random_Numbers, random_Operation) {
     operation.innerText = random_Operation
 }
 
-
-
 update_Numbers(random_Numbers, random_Operation)
+
+function reset_Input_Field_Colors() {
+    var acc = "rgb(79, 205, 185)"
+    var answer_Container = document.getElementById('answer-container')
+    var answer_Field = document.getElementById('answer-field')
+    answer_Container.style.borderColor = acc
+    answer_Field.style.color = acc
+}
+
+function reset_Input_Text() {
+    var input_Field = document.getElementById('answer-field')
+    input_Field.value = ""
+}
+
+function reset_Game() {
+    reset_Input_Field_Colors()
+    reset_Input_Text()
+    var random_Numbers = generate_Random_Nums(difficulty)
+    var random_Operation = generate_Random_Oper()
+    update_Numbers(random_Numbers, random_Operation)
+    function answer(random_Numbers, random_Operation) {
+        answer = eval(random_Numbers[0] + random_Operation + random_Numbers[1])
+        return answer
+    }
+    answer(random_Numbers, random_Operation)
+}
 
 function getValue() {
     // correct answer to question
@@ -68,6 +91,9 @@ function getValue() {
     let value = document.getElementById('answer-field').value
     if (value == answer(random_Numbers, random_Operation)) {
         correct_Guess()
+        setTimeout(function () {
+            reset_Game()
+        }, 1000)
     }
 
     // check if enter key pressed
@@ -81,8 +107,14 @@ function getValue() {
             }
             if (value == answer(random_Numbers, random_Operation)) {
                 correct_Guess()
+                setTimeout(function () {
+                    reset_Game()
+                }, 1000)
             } else {
                 wrong_Guess()
+                setTimeout(function () {
+                    reset_Game()
+                }, 1000)
         }
       }
     });
