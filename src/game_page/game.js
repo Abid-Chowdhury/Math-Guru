@@ -35,11 +35,20 @@ function update_Numbers(random_Numbers, random_Operation) {
     operation.innerText = random_Operation
 }
 
-// correct answer to question
-function answer(random_Numbers, random_Operation) {
-    answer = eval(random_Numbers[0] + random_Operation + random_Numbers[1])
-    return answer
-}
+
 
 update_Numbers(random_Numbers, random_Operation)
-console.log(answer(random_Numbers, random_Operation))
+
+function getValue() {
+    // correct answer to question
+    function answer(random_Numbers, random_Operation) {
+        answer = eval(random_Numbers[0] + random_Operation + random_Numbers[1])
+        return answer
+    }
+   
+    // check if input matches correct answer
+    let value = document.getElementById('answer-field').value
+    if (value == answer(random_Numbers, random_Operation)) {
+        console.log(value)
+    }
+}
