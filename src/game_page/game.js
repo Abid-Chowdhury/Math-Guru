@@ -10,7 +10,7 @@ Array.prototype.random = function () {
 var first = document.getElementById('first')
 var second = document.getElementById('second')
 var operation = document.getElementById('operation')
-var correct_Answer = 0
+var correct_Answer = null
 var green = "rgb(82, 205, 79)"
 var red = "rgb(205, 79, 79)"
 var acc = "rgb(79, 205, 185)"
@@ -20,6 +20,11 @@ function update_Numbers() {
     random_Numbers = generate_Random_Numbers()
     random_Operator = generate_Random_Operator()
     correct_Answer = update_Correct_Answer(random_Numbers, random_Operator, correct_Answer)
+    while (check_If_Correct_Answer_Is_Whole_Number() == false) {
+        random_Numbers = generate_Random_Numbers()
+        random_Operator = generate_Random_Operator()
+        correct_Answer = update_Correct_Answer(random_Numbers, random_Operator, correct_Answer)
+    }
     display_Data(random_Numbers, random_Operator)
 }
 
@@ -40,6 +45,15 @@ function generate_Random_Operator() {
 function update_Correct_Answer(random_Numbers, random_Operator, correct_Answer) {
     correct_Answer = eval(random_Numbers[0] + random_Operator + random_Numbers[1])
     return correct_Answer
+}
+
+// check if the correct answer is a whole number
+function check_If_Correct_Answer_Is_Whole_Number() {
+    if (Number.isInteger(correct_Answer)) { 
+        return true
+    } else {
+        return false
+    }
 }
 
 // display data
