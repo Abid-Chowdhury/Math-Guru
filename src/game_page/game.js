@@ -20,18 +20,32 @@ function update_Numbers() {
     random_Numbers = generate_Random_Numbers()
     random_Operator = generate_Random_Operator()
     correct_Answer = update_Correct_Answer(random_Numbers, random_Operator, correct_Answer)
+    
     while (check_If_Correct_Answer_Is_Whole_Number() == false) {
         random_Numbers = generate_Random_Numbers()
         random_Operator = generate_Random_Operator()
         correct_Answer = update_Correct_Answer(random_Numbers, random_Operator, correct_Answer)
     }
+    
     display_Data(random_Numbers, random_Operator)
 }
 
 // generate random numbers
 function generate_Random_Numbers() {
-    first_Number = Math.floor(Math.random() * 10)
-    second_Number = Math.floor(Math.random() * 10)
+    if (difficulty == 'easy') {
+        first_Number = Math.floor(Math.random() * 10)
+        second_Number = Math.floor(Math.random() * 10)
+    } else if (difficulty == 'medium') {
+        first_Number = Math.floor(Math.random() * 90) + 10;
+        second_Number = Math.floor(Math.random() * 10)
+    } else if (difficulty == 'hard') {
+        first_Number = Math.floor(Math.random() * 90) + 10;
+        second_Number = Math.floor(Math.random() * 90) + 10;
+    } else if (difficulty == 'impossible') {
+        first_Number = Math.floor(Math.random() * 900) + 100;
+        second_Number = Math.floor(Math.random() * 900) + 100;
+    }
+
     return [first_Number, second_Number]
 }
 
