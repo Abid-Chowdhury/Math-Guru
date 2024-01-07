@@ -10,112 +10,41 @@ Array.prototype.random = function () {
 var first = document.getElementById('first')
 var second = document.getElementById('second')
 var operation = document.getElementById('operation')
+var correct_Answer = 0
 
-// generates random numbers based on difficulty
-function generate_Random_Nums(difficulty) {
-    first_Num = Math.floor(Math.random() * 10)
-    second_Num = Math.floor(Math.random() * 10)
-    return [first_Num, second_Num]
+// update numbers function
+function update_Numbers() {
+    random_Numbers = generate_Random_Numbers()
+    random_Operator = generate_Random_Operator()
+    correct_Answer = update_Correct_Answer(random_Numbers, random_Operator, correct_Answer)
+    console.log(correct_Answer)
+    display_Data(random_Numbers, random_Operator)
 }
 
-// generates random operation
-function generate_Random_Oper() {
-    random_Oper = ['+', '-', '*', '/'].random()
-    return random_Oper
+// generate random numbers
+function generate_Random_Numbers() {
+    first_Number = Math.floor(Math.random() * 10)
+    second_Number = Math.floor(Math.random() * 10)
+    return [first_Number, second_Number]
 }
 
-var random_Numbers = generate_Random_Nums(difficulty)
-var random_Operation = generate_Random_Oper()
-
-// update numbers of page to random numbers
-function update_Numbers(random_Numbers, random_Operation) {
-    first.innerText = random_Numbers[0]
-    second.innerText = random_Numbers[1]
-    operation.innerText = random_Operation
+// generate random operator
+function generate_Random_Operator() {
+    random_Operator = ['+', '-', '*', '/'].random()
+    return random_Operator
 }
 
-update_Numbers(random_Numbers, random_Operation)
-
-function reset_Input_Field_Colors() {
-    var acc = "rgb(79, 205, 185)"
-    var answer_Container = document.getElementById('answer-container')
-    var answer_Field = document.getElementById('answer-field')
-    answer_Container.style.borderColor = acc
-    answer_Field.style.color = acc
+// update correct answer
+function update_Correct_Answer(random_Numbers, random_Operator, correct_Answer) {
+    correct_Answer = eval(random_Numbers[0] + random_Operator + random_Numbers[1])
+    return correct_Answer
 }
 
-function reset_Input_Text() {
-    var input_Field = document.getElementById('answer-field')
-    input_Field.value = ""
+// display data
+function display_Data(random_Numbers, random_Operator) {
+    first.innerHTML = random_Numbers[0]
+    second.innerHTML = random_Numbers[1]
+    operation.innerHTML = random_Operator
 }
 
-function reset_Game() {
-    reset_Input_Field_Colors()
-    reset_Input_Text()
-    var random_Numbers = generate_Random_Nums(difficulty)
-    var random_Operation = generate_Random_Oper()
-    update_Numbers(random_Numbers, random_Operation)
-    function answer(random_Numbers, random_Operation) {
-        answer = eval(random_Numbers[0] + random_Operation + random_Numbers[1])
-        return answer
-    }
-    answer(random_Numbers, random_Operation)
-}
-
-function getValue() {
-    // correct answer to question
-    function answer(random_Numbers, random_Operation) {
-        answer = eval(random_Numbers[0] + random_Operation + random_Numbers[1])
-        return answer
-    }
-   
-    function correct_Guess() {
-        var green = "rgb(82, 205, 79)"
-        var red = "rgb(205, 79, 79)"
-        var answer_Container = document.getElementById('answer-container')
-        var answer_Field = document.getElementById('answer-field')
-        answer_Container.style.borderColor = green
-        answer_Field.style.color = green
-    }
-
-    function wrong_Guess() {
-        var green = "rgb(82, 205, 79)"
-        var red = "rgb(205, 79, 79)"
-        var answer_Container = document.getElementById('answer-container')
-        var answer_Field = document.getElementById('answer-field')
-        answer_Container.style.borderColor = red
-        answer_Field.style.color = red
-    }
-
-    // check if input matches correct answer
-    let value = document.getElementById('answer-field').value
-    if (value == answer(random_Numbers, random_Operation)) {
-        correct_Guess()
-        setTimeout(function () {
-            reset_Game()
-        }, 1000)
-    }
-
-    // check if enter key pressed
-    const input = document.querySelector("input");
-    input.addEventListener("keyup", (event) => {
-        if (event.key === "Enter") {
-            // correct answer to question
-            function answer(random_Numbers, random_Operation) {
-                answer = eval(random_Numbers[0] + random_Operation + random_Numbers[1])
-                return answer
-            }
-            if (value == answer(random_Numbers, random_Operation)) {
-                correct_Guess()
-                setTimeout(function () {
-                    reset_Game()
-                }, 1000)
-            } else {
-                wrong_Guess()
-                setTimeout(function () {
-                    reset_Game()
-                }, 1000)
-        }
-      }
-    });
-}
+update_Numbers()
