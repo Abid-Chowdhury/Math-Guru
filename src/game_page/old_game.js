@@ -64,7 +64,7 @@ function reset_Game() {
     answer = eval(random_Numbers[0] + random_Operation + random_Numbers[1])
 }
 
-function getValue() {
+function checkValue() {
     // correct answer to question
     function answer(random_Numbers, random_Operation) {        
         answer = eval(random_Numbers[0] + random_Operation + random_Numbers[1])

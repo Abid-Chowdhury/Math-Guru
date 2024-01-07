@@ -6,18 +6,19 @@ Array.prototype.random = function () {
     return this[Math.floor((Math.random()*this.length))]
 }
 
-// set vars for nums & operations
+// set page variables
 var first = document.getElementById('first')
 var second = document.getElementById('second')
 var operation = document.getElementById('operation')
 var correct_Answer = 0
+var green = "rgb(82, 205, 79)"
+var red = "rgb(205, 79, 79)"
 
 // update numbers function
 function update_Numbers() {
     random_Numbers = generate_Random_Numbers()
     random_Operator = generate_Random_Operator()
     correct_Answer = update_Correct_Answer(random_Numbers, random_Operator, correct_Answer)
-    console.log(correct_Answer)
     display_Data(random_Numbers, random_Operator)
 }
 
@@ -47,4 +48,49 @@ function display_Data(random_Numbers, random_Operator) {
     operation.innerHTML = random_Operator
 }
 
+// checkValue function gets triggered when input field is updated by user
+function checkValue() {
+    let value = document.getElementById('answer-field').value
+    check_If_Value_Is_Correct(value)
+    check_If_Enter_Key_Pressed(value)
+}
+
+// check if value matches answer
+function check_If_Value_Is_Correct(value) {
+    if (value == correct_Answer) {
+        correct_Guess()
+    }
+}
+
+// check if user pressed enter key
+function check_If_Enter_Key_Pressed(value) {
+    const input = document.querySelector("input")
+    input.addEventListener('keyup', (event) => {
+        if (event.key === 'Enter') {
+            if (value == correct_Answer) {
+                correct_Guess()
+            } else {
+                wrong_Guess()
+            }
+       } 
+    })
+}
+
+// make input field green
+function correct_Guess() {
+    var answer_Container = document.getElementById('answer-container')
+    var answer_Field = document.getElementById('answer-field')
+    answer_Container.style.borderColor = green
+    answer_Field.style.color = green
+}
+
+// make input field red
+function wrong_Guess() {
+    var answer_Container = document.getElementById('answer-container')
+    var answer_Field = document.getElementById('answer-field')
+    answer_Container.style.borderColor = red
+    answer_Field.style.color = red
+}
+
+// start game
 update_Numbers()
