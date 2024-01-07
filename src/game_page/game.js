@@ -13,6 +13,7 @@ var operation = document.getElementById('operation')
 var correct_Answer = 0
 var green = "rgb(82, 205, 79)"
 var red = "rgb(205, 79, 79)"
+var acc = "rgb(79, 205, 185)"
 
 // update numbers function
 function update_Numbers() {
@@ -59,6 +60,7 @@ function checkValue() {
 function check_If_Value_Is_Correct(value) {
     if (value == correct_Answer) {
         correct_Guess()
+        reset_Game()
     }
 }
 
@@ -69,8 +71,10 @@ function check_If_Enter_Key_Pressed(value) {
         if (event.key === 'Enter') {
             if (value == correct_Answer) {
                 correct_Guess()
+                reset_Game()
             } else {
                 wrong_Guess()
+                reset_Game()
             }
        } 
     })
@@ -90,6 +94,29 @@ function wrong_Guess() {
     var answer_Field = document.getElementById('answer-field')
     answer_Container.style.borderColor = red
     answer_Field.style.color = red
+}
+
+// reset the game after a round
+function reset_Game() {
+    setTimeout(function () {
+        reset_Input_Field_Colors()
+        reset_Input_Text_Value()
+        update_Numbers()
+    }, 1000)
+}
+
+// resets color of input field
+function reset_Input_Field_Colors() {
+    let answer_Container = document.getElementById('answer-container')
+    let answer_Field = document.getElementById('answer-field')
+    answer_Container.style.borderColor = acc
+    answer_Field.style.color = acc
+}
+
+// reset text value of input
+function reset_Input_Text_Value() {
+    let input_Field = document.getElementById('answer-field')
+    input_Field.value = ""
 }
 
 // start game
