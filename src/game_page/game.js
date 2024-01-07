@@ -149,3 +149,8 @@ function reset_Input_Text_Value() {
 
 // start game
 update_Numbers()
+
+// redirects user to home page when h1 tag clicked
+function redirect_To_Home_Page() {
+    window.location.href = "../home_page/index.html"
+}
