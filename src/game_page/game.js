@@ -154,3 +154,14 @@ update_Numbers()
 function redirect_To_Home_Page() {
     window.location.href = "../home_page/index.html"
 }
+
+// changes github image when hovered
+var image = document.getElementById('github-image')
+
+function hover() {
+    image.setAttribute('src', "../images/github_active.svg")
+}
+
+function unhover() {
+  image.setAttribute('src', "../images/github.svg")
+}
