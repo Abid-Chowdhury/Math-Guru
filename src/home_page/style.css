@@ -12,6 +12,10 @@
 body {
     background-color: var(--bg);
     font-family: var(--font);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 
 header {
@@ -40,7 +44,6 @@ h1 {
     margin: 0 auto;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 15px;
     gap: 10px;
 }
 
@@ -66,4 +69,26 @@ h1 {
     transition: .4s ease-in;
     box-shadow:  5px 5px 20px #43ae9d,
              -5px -5px 20px rgb(91, 236, 213);
+}
+
+footer {
+    margin-top: auto;
+    justify-content: flex-end;
+}
+
+.footer-image-container {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    float: right;
+    width: 72px;
+    height: 72px;
+    background-color: var(--acc);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer img {
+    width: 48px;
 }
