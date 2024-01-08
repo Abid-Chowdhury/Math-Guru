@@ -55,8 +55,9 @@ h1 {
     }
 
     .answer-container {
+        min-width: 250px;
+        max-width: 16vw;
         margin: auto;
-        width: 16vw;
         padding-top: 2vh;
         padding-bottom: 2vh;
         text-align: center;
@@ -69,7 +70,8 @@ h1 {
             background: transparent;
             border: 0;
             text-align: center;
-            width: 16vw;
+            min-width: 250px;
+            max-width: 16vw;
             outline: none;
         }
 
