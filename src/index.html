@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="..\images\icon.png">
+    <title>Math Guru</title>
+</head>
+<body>
+    <header>
+        <h1 onclick="redirect_To_Home_Page()">Math Guru</h1>
+    </header>
+
+    <div class="difficulty-selection">
+        <div class="title">
+            <h2>Choose difficulty</h2>
+        </div>
+        <div class="difficulty-cards">
+            <button class="difficulty-card" id="easy" onclick="redirect('easy')">
+                <h3>Easy</h3>
+            </button>
+            <button class="difficulty-card" id="medium" onclick="redirect('medium')">
+                <h3>Medium</h3>
+            </button>
+            <button class="difficulty-card" id="hard" onclick="redirect('hard')">
+                <h3>Hard</h3>
+            </button>
+            <button class="difficulty-card" id="impossible" onclick="redirect('impossible')">
+                <h3>Impossible</h3>
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-image-container" onmouseover="hover()" onmouseout="unhover()" onclick="location.href = 'https://github.com/Abid-Chowdhury/Math-Guru'">
+            <img id="github-image" src="..\images\github.svg">
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

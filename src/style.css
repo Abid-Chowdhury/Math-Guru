@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600&display=swap');
+/* font-family: 'Roboto Mono', monospace; */
+
+
+:root {
+    --bg: rgb(15, 15, 30);
+    --text: rgb(220, 220, 220);
+    --acc: rgb(79, 205, 185);
+    --green: rgb(82, 205, 79);
+    --red: rgb(205, 79, 79);
+    --font: 'Roboto Mono', monospace;
+}
+
+body {
+    background-color: var(--bg);
+    font-family: var(--font);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+header {
+    color: var(--acc);
+    text-align: center;
+}
+
+h1 {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.game-container {
+    margin-top: 10%;
+    text-align: center;
+
+    .question-container {
+        font-size: 64px;
+        display: flex;
+        color: var(--text);
+        margin-bottom: 5%;
+        
+        .number {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+
+        #first {
+            margin-left: auto;
+        }
+
+        #second {
+            margin-right: auto;
+        }
+    }
+
+    .answer-container {
+        min-width: 250px;
+        max-width: 16vw;
+        margin: auto;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        text-align: center;
+        border-radius: 12px;
+        border: 1px solid rgb(101, 246, 223);
+        color: var(--acc);
+        .answer-field {
+            color: var(--acc);
+            font-size: 84px;
+            background: transparent;
+            border: 0;
+            text-align: center;
+            min-width: 250px;
+            max-width: 16vw;
+            outline: none;
+        }
+
+        .answer-field::-webkit-inner-spin-button,
+        .answer-field::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+    }
+}
+
+footer {
+    margin-top: auto;
+    justify-content: flex-end;
+}
+
+.footer-image-container {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    float: right;
+    width: 72px;
+    height: 72px;
+    background-color: var(--acc);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid;
+    align-items: center;
+}
+
+.footer-image-container:hover {
+    cursor: pointer;
+    background-color: var(--acc);
+    color: var(--bg);
+    border: 1px solid rgb(101, 246, 223);
+    border-radius: 50%;
+    background: var(--bg);
+    transition: .4s ease-in;
+    box-shadow:  5px 5px 20px #43ae9d,
+             -5px -5px 20px rgb(91, 236, 213);
+}
+
+footer img {
+    width: 48px;
+}
